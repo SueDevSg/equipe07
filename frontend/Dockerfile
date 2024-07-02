@@ -6,6 +6,7 @@ COPY ./*.html /usr/share/nginx/html
 COPY ./*.css /usr/share/nginx/html/
 COPY ./*.js /usr/share/nginx/html
 COPY ./assets/ /usr/share/nginx/html/assets/
+COPY ./css/ /usr/share/nginx/html/css/
 
 # Expõe a porta padrão do servidor nginx
 EXPOSE 80
