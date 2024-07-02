@@ -1,10 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { CreateCandidateDto } from './dto/create-candidate.dto';
+import { CandidateRepository } from './repositories/candidate.repository';
 
 @Injectable()
 export class CandidateService {
+
+  constructor(private readonly candidateRepository: CandidateRepository){}
+
   create(createCandidateDto: CreateCandidateDto) {
-    return 'This action adds a new candidate';
+    return this.candidateRepository.create(createCandidateDto);
   }
 
   findAll() {
@@ -12,7 +16,7 @@ export class CandidateService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} candidate`;
+    return this.candidateRepository.findOneById(id)
   }
 
   remove(id: number) {
