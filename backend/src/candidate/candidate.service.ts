@@ -7,8 +7,9 @@ export class CandidateService {
 
   constructor(private readonly candidateRepository: CandidateRepository){}
 
-  create(createCandidateDto: CreateCandidateDto) {
-    return this.candidateRepository.create(createCandidateDto);
+  async create(createCandidateDto: CreateCandidateDto) {
+    const candidate = await this.candidateRepository.create(createCandidateDto);
+    return this.convertBigIntToString(candidate);
   }
 
   findAll() {
@@ -21,5 +22,12 @@ export class CandidateService {
 
   remove(id: number) {
     return `This action removes a #${id} candidate`;
+  }
+
+  private convertBigIntToString(candidate: any) {
+    if (candidate && candidate.id && typeof candidate.id === 'bigint') {
+      candidate.id = candidate.id.toString();
+    }
+    return candidate;
   }
 }
