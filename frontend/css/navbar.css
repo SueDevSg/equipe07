@@ -1,0 +1,37 @@
+._navbar {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar__navigation ul{
+    list-style: none;
+    display: flex;
+    gap: 5rem;
+}
+
+.navigation__link {
+    text-decoration: none;
+    color: #fff;
+    transition: all .3s;
+}
+
+.navigation__link:hover {
+    color: var(--cor-primaria);
+}
+
+.navbar__socials {
+    display: flex;
+    gap: 1rem;
+}
+
+.svg-link {
+    cursor: pointer;
+    transition: all .3s;
+    font-size: 2rem;
+}
+
+.svg-link:hover {
+    color: var(--cor-primaria);
+}
