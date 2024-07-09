@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, Query } from '@nestjs/common';
 import { CandidateService } from './candidate.service';
 import { CreateCandidateDto } from './dto/create-candidate.dto';
 
@@ -16,12 +16,20 @@ export class CandidateController {
     return this.candidateService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.candidateService.findOne(+id);
+  @Get('/by-id/:id')
+  findOneById(@Param('id') id: string) {
+    if (isNaN(+id)) {
+      throw new RangeError('The id is not a valid number');
+    }
+    return this.candidateService.findOneById(+id);
   }
 
-  @Delete(':id')
+  @Get('/by-email')
+  findOneByEmail(@Query('email') email: string) {
+    return this.candidateService.findOneByEmail(email);
+  }
+
+  @Delete('/:id')
   remove(@Param('id') id: string) {
     return this.candidateService.remove(+id);
   }
