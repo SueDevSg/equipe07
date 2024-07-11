@@ -24,7 +24,6 @@ export class CandidateService {
   }
 
   remove(id: number) {
-    console.log(`Service remove called with id: ${id}`);
     return `This action removes a #${id} candidate`;
   }
 

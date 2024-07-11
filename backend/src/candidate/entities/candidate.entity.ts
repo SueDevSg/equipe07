@@ -1,4 +1,4 @@
-import { Candidate } from "@prisma/client";
+import { $Enums, Candidate } from "@prisma/client";
 
 export class CandidateEntity implements Candidate{
   id: bigint;
@@ -6,5 +6,6 @@ export class CandidateEntity implements Candidate{
   email: string;
   phone: string;
   isSignIn: boolean;
+  contributionType: $Enums.Contribution;
   createdAt: Date; 
 }

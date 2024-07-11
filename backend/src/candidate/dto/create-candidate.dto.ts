@@ -1,4 +1,5 @@
-import { IsEmail, IsNotEmpty, IsNumberString, IsString, Length } from "class-validator";
+import { $Enums } from "@prisma/client";
+import { IsEmail, IsEnum, IsNotEmpty, IsNumberString, IsString, Length } from "class-validator";
 
 export class CreateCandidateDto {
     @IsString()
@@ -12,4 +13,6 @@ export class CreateCandidateDto {
     @IsNotEmpty()
     @Length(11,11)
     phone: string;
+    @IsEnum($Enums.Contribution)
+    contributionType: $Enums.Contribution
 }
