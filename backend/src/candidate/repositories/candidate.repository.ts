@@ -2,6 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { PrismaService } from "src/prisma/prisma.service";
 import { CreateCandidateDto } from "../dto/create-candidate.dto";
 import { ResponseCandidateDto } from "../dto/response-getCandidate.dto";
+import { $Enums } from "@prisma/client";
 
 @Injectable()
 export class CandidateRepository {
@@ -13,6 +14,7 @@ export class CandidateRepository {
         name: createCandidateDto.name,
         email: createCandidateDto.email,
         phone: createCandidateDto.phone,
+        contributionType: createCandidateDto.contributionType,
         isSignIn: false
       }
     });
@@ -23,7 +25,6 @@ export class CandidateRepository {
   }
 
   async findOneById(id: number): Promise<ResponseCandidateDto | null> {
-    console.log(`findOneById called with id: ${id}`);
     if (isNaN(id)) {
       throw new RangeError('The id is not a valid number');
     }
@@ -38,11 +39,11 @@ export class CandidateRepository {
       name: candidate.name,
       email: candidate.email,
       phone: candidate.phone,
+      contributionType: candidate.contributionType
     };
   }
 
   async findOneByEmail(email: string): Promise<ResponseCandidateDto | null> {
-    console.log(`findOneByEmail called with email: ${email}`);
     const candidate = await this.prisma.candidate.findUnique({
       where: {
         email: email
@@ -53,6 +54,7 @@ export class CandidateRepository {
       name: candidate.name,
       email: candidate.email,
       phone: candidate.phone,
+      contributionType: candidate.contributionType
     };
   }
 }
