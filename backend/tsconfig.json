@@ -1,21 +1,21 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "declaration": true,
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "ES2021",
-    "sourceMap": true,
-    "outDir": "./dist",
-    "baseUrl": "./",
-    "incremental": true,
-    "skipLibCheck": true,
-    "strictNullChecks": false,
-    "noImplicitAny": false,
-    "strictBindCallApply": false,
-    "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "module": "commonjs",                     // Define o sistema de módulos para CommonJS
+    "declaration": true,                      // Gera arquivos de declaração (.d.ts)
+    "removeComments": true,                   // Remove comentários dos arquivos compilados
+    "emitDecoratorMetadata": true,            // Emite metadados de decorator para suporte a DI
+    "experimentalDecorators": true,           // Habilita decorators experimentais
+    "allowSyntheticDefaultImports": true,     // Permite imports de módulos ES6 como default em CommonJS
+    "target": "ES2021",                       // Compila para ECMAScript 2021
+    "sourceMap": true,                        // Gera arquivos de source map para debugging
+    "outDir": "./dist",                       // Diretório de saída dos arquivos compilados
+    "baseUrl": "./",                          // Base URL para resolver módulos
+    "incremental": true,                      // Compilação incremental para melhor desempenho
+    "skipLibCheck": true,                     // Pula a verificação de arquivos de biblioteca
+    "strictNullChecks": false,                // Desabilita verificações estritas de nulos
+    "noImplicitAny": false,                   // Desabilita erros para tipos implícitos 'any'
+    "strictBindCallApply": false,             // Desabilita verificações estritas para bind, call e apply
+    "forceConsistentCasingInFileNames": false, // Desabilita consistência estrita de caixa nos nomes de arquivos
+    "noFallthroughCasesInSwitch": false       // Desabilita erros para falta de 'break' em switch
   }
 }
